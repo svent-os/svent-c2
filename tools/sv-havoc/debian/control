@@ -1,0 +1,13 @@
+Source: sv-havoc
+Section: net
+Priority: optional
+Maintainer: z1rov <fabian@zirov.net>
+Build-Depends: debhelper-compat (= 13), git, ca-certificates, build-essential
+Standards-Version: 4.7.0
+
+Package: sv-havoc
+Architecture: amd64
+Depends: svent-core, ${shlibs:Depends}, ${misc:Depends}
+Description: Svent c2 tool: havoc
+ Vendored and isolated under /opt/sv-havoc so its dependencies never
+ touch the system packages or other tools.

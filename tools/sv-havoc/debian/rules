@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+PKG = sv-havoc
+PREFIX = /opt/sv-havoc
+DESTDIR = $(CURDIR)/debian/sv-havoc
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+override_dh_auto_build:
+override_dh_auto_test:
+
+override_dh_auto_install:
+	rm -rf $(CURDIR)/.src
+	git clone https://github.com/HavocFramework/Havoc $(CURDIR)/.src
+	cd $(CURDIR)/.src && git checkout c84f7755a8b1c0f737576bdd3a0e982a296012f1
+	cd $(CURDIR)/.src && ./teamserver/Install.sh && cd teamserver && GO111MODULE=on go build -ldflags="-s -w" -o ../havoc main.go && cd .. && git submodule update --init --recursive && { test -d client/Modules || git clone --depth 1 https://github.com/HavocFramework/Modules client/Modules; } && mkdir -p client/Build && cd client/Build && cmake .. && cmake --build . -- -j4
+	rm -rf $(CURDIR)/.src/.git
+	mkdir -p $(DESTDIR)$(PREFIX)
+	cp -a $(CURDIR)/.src/. $(DESTDIR)$(PREFIX)/
+	mkdir -p $(DESTDIR)/usr/bin
+	install -D -m755 files/havoc $(DESTDIR)/usr/bin/havoc
+	install -D -m755 files/havoc-client $(DESTDIR)/usr/bin/havoc-client
+	mkdir -p $(DESTDIR)/usr/share/svent/catalog.d
+	cp catalog.d/havoc.json $(DESTDIR)/usr/share/svent/catalog.d/
+
+override_dh_strip:
+override_dh_dwz:
+override_dh_shlibdeps:
+	dh_shlibdeps || true
+
+override_dh_auto_clean:
+	rm -rf $(CURDIR)/.src

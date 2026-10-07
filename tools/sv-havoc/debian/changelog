@@ -1,0 +1,5 @@
+sv-havoc (0.7.0) unstable; urgency=medium
+
+  * Package havoc (built from source, vendored tree).
+
+ -- z1rov <fabian@zirov.net>  Wed, 07 Oct 2026 09:38:50 -0400

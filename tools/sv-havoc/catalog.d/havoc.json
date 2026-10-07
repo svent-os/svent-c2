@@ -1,0 +1,1 @@
+{"schema":1,"name":"havoc","group":"c2","description":"Havoc C2 framework (teamserver + Qt client)","packaging":"svent","package":"sv-havoc","executables":["havoc","havoc-client"],"official_source":"https://github.com/HavocFramework/Havoc","version_policy":"svent-packaged","functional_test":["havoc","--help"],"functional_test_any_exit":true}
