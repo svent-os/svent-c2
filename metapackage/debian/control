@@ -1,0 +1,13 @@
+Source: sv-tools-c2
+Section: metapackages
+Priority: optional
+Maintainer: z1rov <fabian@zirov.net>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: sv-tools-c2
+Architecture: all
+Depends: svent-core, sv-villain, sv-sliver, ${misc:Depends}
+Description: Svent c2 tool group
+ Installs every Svent tool in the c2 category.

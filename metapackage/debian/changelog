@@ -1,0 +1,17 @@
+sv-tools-c2 (0.1.2) unstable; urgency=medium
+
+  * Add sv-sliver
+
+ -- z1rov <fabian@zirov.net>  Wed, 07 Oct 2026 08:57:42 -0400
+
+sv-tools-c2 (0.1.1) unstable; urgency=medium
+
+  * Add sv-sliver
+
+ -- z1rov <fabian@zirov.net>  Wed, 07 Oct 2026 08:52:11 -0400
+
+sv-tools-c2 (0.1.0) unstable; urgency=medium
+
+  * Initial release.
+
+ -- z1rov <fabian@zirov.net>  Wed, 07 Oct 2026 08:18:37 -0400

@@ -1,0 +1,1 @@
+{"schema":1,"name":"villain","group":"c2","description":"Multi-session C2 and reverse-shell handler (Villain)","packaging":"svent","package":"sv-villain","executables":["villain"],"official_source":"https://github.com/t3l3machus/Villain","version_policy":"svent-packaged","functional_test":["villain","--help"],"functional_test_any_exit":true}

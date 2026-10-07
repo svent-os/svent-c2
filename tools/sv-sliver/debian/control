@@ -1,0 +1,13 @@
+Source: sv-sliver
+Section: net
+Priority: optional
+Maintainer: z1rov <fabian@zirov.net>
+Build-Depends: debhelper-compat (= 13), curl, ca-certificates
+Standards-Version: 4.7.0
+
+Package: sv-sliver
+Architecture: amd64
+Depends: svent-core, ${shlibs:Depends}, ${misc:Depends}
+Description: Svent c2 tool: sliver
+ Vendored and isolated under /opt/sv-sliver so its dependencies never
+ touch the system packages or other tools.

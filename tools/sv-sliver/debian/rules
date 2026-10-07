@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+PKG = sv-sliver
+PREFIX = /opt/sv-sliver
+DESTDIR = $(CURDIR)/debian/sv-sliver
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+override_dh_auto_build:
+override_dh_auto_test:
+
+override_dh_auto_install:
+	mkdir -p $(DESTDIR)$(PREFIX) $(DESTDIR)/usr/bin
+	sh files/fetch "https://api.github.com/repos/BishopFox/sliver/releases/tags/v1.7.8" "sliver-server_linux-amd64" "$(DESTDIR)$(PREFIX)/sliver-server"
+	ln -sf $(PREFIX)/sliver-server $(DESTDIR)/usr/bin/sliver-server
+	sh files/fetch "https://api.github.com/repos/BishopFox/sliver/releases/tags/v1.7.8" "sliver-client_linux-amd64" "$(DESTDIR)$(PREFIX)/sliver-client"
+	ln -sf $(PREFIX)/sliver-client $(DESTDIR)/usr/bin/sliver-client
+	mkdir -p $(DESTDIR)/usr/share/svent/catalog.d
+	cp catalog.d/sliver.json $(DESTDIR)/usr/share/svent/catalog.d/
+
+override_dh_strip:
+override_dh_dwz:
+override_dh_shlibdeps:
+	dh_shlibdeps || true
+
+override_dh_auto_clean:

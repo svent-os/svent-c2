@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /opt/sv-villain/.venv/bin/python /opt/sv-villain/Villain.py "$@"
