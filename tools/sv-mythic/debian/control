@@ -8,6 +8,6 @@ Rules-Requires-Root: no
 
 Package: sv-mythic
 Architecture: amd64
-Depends: svent-core (>= 0.4.4), python3, docker.io (>= 20.10.22), docker-compose (>= 2.0), git, ca-certificates, xdg-utils, ${shlibs:Depends}, ${misc:Depends}
+Depends: svent-core (>= 0.4.4), python3, docker.io (>= 20.10.22), docker-compose (>= 2.0), git, ca-certificates, xdg-utils, x-terminal-emulator, ${shlibs:Depends}, ${misc:Depends}
 Description: Svent C2 framework: mythic
  Pinned source build with separate persistent runtime data.

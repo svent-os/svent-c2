@@ -1,2 +1,73 @@
-#!/bin/sh
-exec xdg-open https://127.0.0.1:7443
+#!/usr/bin/python3
+import fcntl
+import os
+from pathlib import Path
+import shutil
+import ssl
+import subprocess
+import sys
+import time
+import urllib.error
+import urllib.request
+
+URL = "https://127.0.0.1:7443/"
+
+
+def ready():
+    context = ssl._create_unverified_context()
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), urllib.request.HTTPSHandler(context=context))
+    try:
+        with opener.open(URL, timeout=3) as response:
+            return 200 <= response.status < 400
+    except urllib.error.HTTPError as error:
+        return error.code in (401, 403)
+    except (OSError, urllib.error.URLError):
+        return False
+
+
+def open_browser():
+    subprocess.run(["xdg-open", URL], check=True)
+
+
+def start():
+    cache = Path.home() / ".cache/svent"
+    cache.mkdir(parents=True, exist_ok=True)
+    with (cache / "mythic-web.lock").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        if not ready():
+            privilege = [] if os.geteuid() == 0 else ["sudo"]
+            print("[+] Starting Docker and Mythic. The first launch may download container images.", flush=True)
+            subprocess.run(privilege + ["systemctl", "start", "docker"], check=True, timeout=120)
+            subprocess.run(privilege + ["mythic-cli", "start"], check=True, timeout=1800)
+            print("[+] Waiting for the Mythic web interface...", flush=True)
+            deadline = time.monotonic() + 300
+            while not ready():
+                if time.monotonic() >= deadline:
+                    raise RuntimeError("Mythic did not become ready. Run: sudo mythic-cli status")
+                time.sleep(2)
+        open_browser()
+
+
+def main():
+    if "--start" in sys.argv[1:]:
+        try:
+            start()
+        except (OSError, RuntimeError, subprocess.SubprocessError) as error:
+            print("[-] " + str(error), file=sys.stderr, flush=True)
+            if sys.stdin.isatty():
+                input("Press Enter to close.")
+            return 1
+        return 0
+    if ready():
+        open_browser()
+        return 0
+    terminal = shutil.which("x-terminal-emulator")
+    if not terminal:
+        print("[-] No terminal emulator found. Run: sudo mythic-cli start", file=sys.stderr)
+        return 1
+    subprocess.Popen([terminal, "-e", "/usr/bin/python3", "-I", str(Path(__file__).resolve()), "--start"])
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
