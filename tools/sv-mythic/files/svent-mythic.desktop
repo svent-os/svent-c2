@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Mythic
+Comment=Open the local Mythic web interface
+Exec=mythic-web
+Icon=svent-mythic
+Terminal=false
+Categories=X-Svent-c2;

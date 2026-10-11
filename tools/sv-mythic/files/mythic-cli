@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/python3 -I /usr/libexec/svent/sv-mythic-runtime.py sv-mythic mythic-cli "$@"

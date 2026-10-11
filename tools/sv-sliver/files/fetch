@@ -1,8 +1,0 @@
-#!/bin/sh
-set -e
-api="$1"; pat="$2"; out="$3"
-url=$(curl -sfL -H 'Accept: application/vnd.github+json' "$api" | grep browser_download_url | cut -d'"' -f4 | grep -E "$pat" | grep -viE 'arm|aarch|386|i686|ppc|mips|s390|riscv|darwin|macos|windows|freebsd|[.](exe|sig|sha256|sha512|asc|txt|minisig|deb|rpm|pem)$' | head -1)
-[ -n "$url" ] || { echo "sv-bin: no asset matching: $pat" >&2; exit 1; }
-echo "  fetching $url"
-curl -sfL "$url" -o "$out"
-chmod +x "$out"

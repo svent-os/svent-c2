@@ -7,3 +7,7 @@ Copyright: 2026 z1rov <fabian@zirov.net>
 License: GPL-3.0-or-later
  On Debian systems the full license text is in
  /usr/share/common-licenses/GPL-3.
+Comment: Official Sliver release executables are downloaded during package
+ configuration and are not redistributed in this Debian package. Their
+ upstream GPL-3.0 license is retained in
+ /usr/share/doc/sv-sliver/upstream-license.

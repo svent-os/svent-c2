@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "package": "sv-mythic",
+  "version": "3.4.0.5",
+  "repository": "https://github.com/its-a-feature/Mythic",
+  "ref": "v3.4.0.5",
+  "source": {
+    "url": "https://codeload.github.com/its-a-feature/Mythic/tar.gz/refs/tags/v3.4.0.5",
+    "size": 13656749,
+    "sha256": "27d8d97f3ad755bea8f877bb347a6a7930f783f32ca977ab3937300706063e8d"
+  },
+  "archive_symlinks": {
+    "mythic-react-docker/config/modules": "/usr/lib/nginx/modules",
+    "nginx-docker/config/modules": "/usr/lib/nginx/modules"
+  }
+}

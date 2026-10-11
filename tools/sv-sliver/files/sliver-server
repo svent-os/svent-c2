@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+binary=/opt/sv-sliver/current/sliver-server
+if [ ! -x "$binary" ]; then
+    printf '[-] Sliver is unavailable. Reinstall sv-sliver to complete the verified download.\n' >&2
+    exit 1
+fi
+exec "$binary" "$@"

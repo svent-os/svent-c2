@@ -1,3 +1,2 @@
 #!/bin/sh
-cd /opt/sv-havoc || exit 1
-exec ./havoc "$@"
+exec /usr/bin/python3 -I /usr/libexec/svent/sv-havoc-runtime.py sv-havoc havoc "$@"

@@ -2,12 +2,12 @@ Source: sv-havoc
 Section: net
 Priority: optional
 Maintainer: z1rov <fabian@zirov.net>
-Build-Depends: debhelper-compat (= 13), git, ca-certificates, build-essential
+Build-Depends: debhelper-compat (= 13), python3, cmake, g++, python3-dev, qtbase5-dev, libqt5websockets5-dev, pkg-config, ca-certificates
 Standards-Version: 4.7.0
+Rules-Requires-Root: no
 
 Package: sv-havoc
 Architecture: amd64
-Depends: svent-core, ${shlibs:Depends}, ${misc:Depends}
-Description: Svent c2 tool: havoc
- Vendored and isolated under /opt/sv-havoc so its dependencies never
- touch the system packages or other tools.
+Depends: svent-core (>= 0.4.4), python3 (>= 3.13), python3 (<< 3.14), libqt5sql5-sqlite, gcc-mingw-w64-x86-64, gcc-mingw-w64-i686, nasm, ${shlibs:Depends}, ${misc:Depends}
+Description: Svent C2 framework: havoc
+ Pinned source build with separate persistent runtime data.

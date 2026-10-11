@@ -1,3 +1,9 @@
+sv-havoc (0.7.1) unstable; urgency=medium
+
+  * Pin official sources, declare dependencies and preserve runtime data.
+
+ -- z1rov <fabian@zirov.net>  Sat, 10 Oct 2026 23:59:00 -0500
+
 sv-havoc (0.7.0) unstable; urgency=medium
 
   * Package havoc (built from source, vendored tree).

@@ -1,9 +1,16 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: sv-havoc
+Upstream-Name: Havoc
 Source: https://github.com/HavocFramework/Havoc
 
-Files: *
+Files: debian/* files/* catalog.d/* upstream.json
 Copyright: 2026 z1rov <fabian@zirov.net>
 License: GPL-3.0-or-later
  On Debian systems the full license text is in
  /usr/share/common-licenses/GPL-3.
+
+Files: .build/*/source/*
+Copyright: Paul Ungur and contributors
+License: GPL-3.0
+ The exact upstream license and original source archives are included in
+ /usr/share/doc/sv-havoc/.
+ Go dependency archives retain their individual copyright and license notices.

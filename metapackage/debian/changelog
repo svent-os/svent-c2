@@ -1,3 +1,9 @@
+sv-tools-c2 (0.2.0) unstable; urgency=medium
+
+  * Require Havoc, Sliver and Mythic as the complete C2 group.
+
+ -- z1rov <fabian@zirov.net>  Sat, 10 Oct 2026 23:59:00 -0500
+
 sv-tools-c2 (0.1.4) unstable; urgency=medium
 
   * Drop sv-havoc from the metapackage (installed on demand; too heavy).

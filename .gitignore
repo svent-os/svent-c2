@@ -17,3 +17,8 @@ tools/*/debian/files
 tools/*/debian/.debhelper/
 tools/*/debian/debhelper-build-stamp
 tools/*/debian/sv-*/
+tools/*/.build/
+*.inputs.sha256
+*.sha256
+__pycache__/
+*.pyc

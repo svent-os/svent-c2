@@ -2,12 +2,12 @@ Source: sv-sliver
 Section: net
 Priority: optional
 Maintainer: z1rov <fabian@zirov.net>
-Build-Depends: debhelper-compat (= 13), curl, ca-certificates
+Build-Depends: debhelper-compat (= 13), python3
 Standards-Version: 4.7.0
+Rules-Requires-Root: no
 
 Package: sv-sliver
 Architecture: amd64
-Depends: svent-core, ${shlibs:Depends}, ${misc:Depends}
-Description: Svent c2 tool: sliver
- Vendored and isolated under /opt/sv-sliver so its dependencies never
- touch the system packages or other tools.
+Depends: svent-core (>= 0.4.4), python3, ca-certificates, ${misc:Depends}
+Description: Svent C2 framework: sliver
+ Downloads and verifies pinned official Linux amd64 server and client releases.

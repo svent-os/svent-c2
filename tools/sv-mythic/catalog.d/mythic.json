@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "name": "mythic",
+  "group": "c2",
+  "description": "Mythic C2 framework",
+  "packaging": "svent",
+  "package": "sv-mythic",
+  "executables": [
+    "mythic",
+    "mythic-cli"
+  ],
+  "official_source": "https://github.com/its-a-feature/Mythic",
+  "version_policy": "pinned",
+  "functional_test": [
+    "mythic",
+    "--help"
+  ],
+  "functional_test_any_exit": false,
+  "desktop_file": "svent-mythic.desktop",
+  "isolation": {
+    "kind": "container-runtime",
+    "prefix": "/opt/sv-mythic",
+    "state": "/var/lib/svent/mythic"
+  }
+}

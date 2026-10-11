@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Havoc
+Comment=Havoc graphical client
+Exec=havoc-client
+Icon=svent-havoc
+Terminal=false
+Categories=X-Svent-c2;

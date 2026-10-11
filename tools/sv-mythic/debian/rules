@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_configure:
+
+override_dh_auto_build:
+	python3 debian/build.py build
+
+override_dh_auto_test:
+	python3 debian/build.py test
+
+override_dh_auto_install:
+	python3 debian/build.py install $(CURDIR)/debian/sv-mythic
+
+override_dh_auto_clean:
+
+override_dh_strip:
+
+override_dh_dwz:

@@ -1,27 +1,22 @@
 #!/usr/bin/make -f
-PKG = sv-sliver
-PREFIX = /opt/sv-sliver
-DESTDIR = $(CURDIR)/debian/sv-sliver
-
 %:
 	dh $@
 
 override_dh_auto_configure:
+
 override_dh_auto_build:
+	python3 -c 'import ast,json,pathlib; ast.parse(pathlib.Path("debian/download.py").read_text()); json.loads(pathlib.Path("upstream.json").read_text())'
+
 override_dh_auto_test:
 
 override_dh_auto_install:
-	mkdir -p $(DESTDIR)$(PREFIX) $(DESTDIR)/usr/bin
-	sh files/fetch "https://api.github.com/repos/BishopFox/sliver/releases/tags/v1.7.8" "sliver-server_linux-amd64" "$(DESTDIR)$(PREFIX)/sliver-server"
-	ln -sf $(PREFIX)/sliver-server $(DESTDIR)/usr/bin/sliver-server
-	sh files/fetch "https://api.github.com/repos/BishopFox/sliver/releases/tags/v1.7.8" "sliver-client_linux-amd64" "$(DESTDIR)$(PREFIX)/sliver-client"
-	ln -sf $(PREFIX)/sliver-client $(DESTDIR)/usr/bin/sliver-client
-	mkdir -p $(DESTDIR)/usr/share/svent/catalog.d
-	cp catalog.d/sliver.json $(DESTDIR)/usr/share/svent/catalog.d/
-
-override_dh_strip:
-override_dh_dwz:
-override_dh_shlibdeps:
-	dh_shlibdeps || true
+	install -D -m755 files/sliver-server debian/sv-sliver/usr/bin/sliver-server
+	install -D -m755 files/sliver-client debian/sv-sliver/usr/bin/sliver-client
+	install -D -m755 files/sliver-check debian/sv-sliver/usr/bin/sliver-check
+	install -D -m644 debian/download.py debian/sv-sliver/usr/libexec/svent/sliver-download.py
+	install -D -m644 upstream.json debian/sv-sliver/usr/share/svent/downloads/sliver.json
+	install -D -m644 catalog.d/sliver.json debian/sv-sliver/usr/share/svent/catalog.d/sliver.json
+	install -D -m644 files/upstream-license debian/sv-sliver/usr/share/doc/sv-sliver/upstream-license
+	install -D -m644 upstream.json debian/sv-sliver/usr/share/doc/sv-sliver/upstream.json
 
 override_dh_auto_clean:

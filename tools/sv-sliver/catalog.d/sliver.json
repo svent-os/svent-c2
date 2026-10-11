@@ -1,1 +1,24 @@
-{"schema":1,"name":"sliver","group":"c2","description":"Adversary emulation / C2 framework (server + client)","packaging":"svent","package":"sv-sliver","executables":["sliver-server","sliver-client"],"official_source":"https://github.com/BishopFox/sliver","version_policy":"svent-packaged","functional_test":["sliver-server","version"],"functional_test_any_exit":true}
+{
+  "schema": 1,
+  "name": "sliver",
+  "group": "c2",
+  "description": "Sliver C2 framework: server and client",
+  "packaging": "svent",
+  "package": "sv-sliver",
+  "executables": [
+    "sliver-server",
+    "sliver-client",
+    "sliver-check"
+  ],
+  "official_source": "https://github.com/BishopFox/sliver",
+  "version_policy": "pinned",
+  "functional_test": [
+    "sliver-client",
+    "version"
+  ],
+  "functional_test_any_exit": false,
+  "isolation": {
+    "kind": "downloaded-release",
+    "prefix": "/opt/sv-sliver"
+  }
+}

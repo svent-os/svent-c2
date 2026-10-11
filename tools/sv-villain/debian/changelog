@@ -1,5 +1,0 @@
-sv-villain (0.1.0) unstable; urgency=medium
-
-  * Package villain (vendored from git).
-
- -- z1rov <fabian@zirov.net>  Wed, 07 Oct 2026 08:18:37 -0400

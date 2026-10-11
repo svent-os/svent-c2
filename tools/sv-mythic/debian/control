@@ -1,0 +1,13 @@
+Source: sv-mythic
+Section: net
+Priority: optional
+Maintainer: z1rov <fabian@zirov.net>
+Build-Depends: debhelper-compat (= 13), python3, golang-go (>= 2:1.23), ca-certificates
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: sv-mythic
+Architecture: amd64
+Depends: svent-core (>= 0.4.4), python3, docker.io (>= 20.10.22), docker-compose (>= 2.0), git, ca-certificates, xdg-utils, ${shlibs:Depends}, ${misc:Depends}
+Description: Svent C2 framework: mythic
+ Pinned source build with separate persistent runtime data.

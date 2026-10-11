@@ -8,6 +8,6 @@ Rules-Requires-Root: no
 
 Package: sv-tools-c2
 Architecture: all
-Depends: svent-core, sv-villain, sv-sliver, ${misc:Depends}
-Description: Svent c2 tool group
- Installs every Svent tool in the c2 category.
+Depends: svent-core (>= 0.4.4), sv-havoc (>= 0.7.1), sv-sliver (>= 1.7.8), sv-mythic (>= 3.4.0.5), ${misc:Depends}
+Description: Complete Svent C2 framework group
+ Installs Havoc, Sliver and Mythic with their required runtime dependencies.

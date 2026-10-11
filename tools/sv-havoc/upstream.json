@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "package": "sv-havoc",
+  "version": "0.7.1",
+  "repository": "https://github.com/HavocFramework/Havoc",
+  "ref": "c84f7755a8b1c0f737576bdd3a0e982a296012f1",
+  "source": {
+    "url": "https://codeload.github.com/HavocFramework/Havoc/tar.gz/c84f7755a8b1c0f737576bdd3a0e982a296012f1",
+    "size": 4900457,
+    "sha256": "8aa6bb6002dfe0626f9c01a3a298192d0e932aa7b839cd76d9e14439454172c7"
+  },
+  "components": [
+    {
+      "name": "json",
+      "repository": "nlohmann/json",
+      "ref": "6eab7a2b187b10b2494e39c1961750bfd1bda500",
+      "url": "https://codeload.github.com/nlohmann/json/tar.gz/6eab7a2b187b10b2494e39c1961750bfd1bda500",
+      "sha256": "0dac13054bfa7470cb5fb90808bb3c05d2ca35d588ad73f4bd536fa49f4f1c41",
+      "size": 8043844
+    },
+    {
+      "name": "spdlog",
+      "repository": "gabime/spdlog",
+      "ref": "ac55e60488032b9acde8940a5de099541c4515da",
+      "url": "https://codeload.github.com/gabime/spdlog/tar.gz/ac55e60488032b9acde8940a5de099541c4515da",
+      "sha256": "508ba349aed926fdf89ef117aa88a70cc330cd0b50699f081dd2956627bcd34e",
+      "size": 263940
+    },
+    {
+      "name": "toml",
+      "repository": "ToruNiina/toml11",
+      "ref": "c32a20e1ee690d6e6bf6f37e6d603402d49b15f0",
+      "url": "https://codeload.github.com/ToruNiina/toml11/tar.gz/c32a20e1ee690d6e6bf6f37e6d603402d49b15f0",
+      "sha256": "8c5ee74f7aa7c81625b57ed8faf04d065746421ad8aa78a71c14b5e160f5edea",
+      "size": 134471
+    }
+  ],
+  "toolchain": {
+    "filename": "go1.23.12.linux-amd64.tar.gz",
+    "os": "linux",
+    "arch": "amd64",
+    "version": "go1.23.12",
+    "sha256": "d3847fef834e9db11bf64e3fb34db9c04db14e068eeb064f49af747010454f90",
+    "size": 73666637,
+    "kind": "archive",
+    "url": "https://go.dev/dl/go1.23.12.linux-amd64.tar.gz"
+  }
+}

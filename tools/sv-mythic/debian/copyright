@@ -1,0 +1,16 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Mythic
+Source: https://github.com/its-a-feature/Mythic
+
+Files: debian/* files/* catalog.d/* upstream.json
+Copyright: 2026 z1rov <fabian@zirov.net>
+License: GPL-3.0-or-later
+ On Debian systems the full license text is in
+ /usr/share/common-licenses/GPL-3.
+
+Files: .build/*/source/*
+Copyright: Cody Thomas and contributors
+License: BSD-3-Clause
+ The exact upstream license and original source archives are included in
+ /usr/share/doc/sv-mythic/.
+ Go dependency archives retain their individual copyright and license notices.

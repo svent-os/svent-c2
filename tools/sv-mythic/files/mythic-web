@@ -1,0 +1,2 @@
+#!/bin/sh
+exec xdg-open https://127.0.0.1:7443

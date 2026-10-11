@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "package": "sv-sliver",
+  "version": "1.7.8",
+  "ref": "v1.7.8",
+  "repository": "https://github.com/BishopFox/sliver",
+  "files": [
+    {
+      "name": "sliver-server",
+      "url": "https://github.com/BishopFox/sliver/releases/download/v1.7.8/sliver-server_linux-amd64",
+      "size": 300716192,
+      "sha256": "e70ae77590f5f0a8aafe8e11685f2cd17b11e0e02d37534412b99a411fd6e3e0"
+    },
+    {
+      "name": "sliver-client",
+      "url": "https://github.com/BishopFox/sliver/releases/download/v1.7.8/sliver-client_linux-amd64",
+      "size": 64643232,
+      "sha256": "a1bfe9ee9807017b83689384d9a169db497643d5b2385d24a942d6d05c5ef701"
+    }
+  ],
+  "distribution": "Download official release files during package configuration; release binaries are not redistributed in the Debian package."
+}
